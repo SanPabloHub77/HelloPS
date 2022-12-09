@@ -1,5 +1,7 @@
-$PSVersionTable
+$PSVersionTable;
 
-("Date/time: {0}" -f (Get-Date -Format "yyyy-MM-dd hh:mm:ss")) | Out-File ".\hello-ps.log";
+$fileName = ".\hello-ps-{0}.log" -f $PSVersionTable.PSVersion.Major;
 
-$PSVersionTable | Out-File ".\hello-ps.log" -Append;
+("Date/time: {0}" -f (Get-Date -Format "yyyy-MM-dd hh:mm:ss")) | Out-File $fileName;
+
+$PSVersionTable | Out-File $fileName -Append;
